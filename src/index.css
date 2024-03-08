@@ -3,19 +3,19 @@
 @tailwind utilities;
 @font-face {
   font-family: KodeMono;
-  src: url("./fonts/Kode_Mono/KodeMono-VariableFont_wght.ttf");
+  src: url("/fonts/Kode_Mono/KodeMono-VariableFont_wght.ttf");
 }
 @font-face {
   font-family: Lovelo;
-  src: url("./fonts/Lovelo/Lovelo-LineLight.ttf");
+  src: url("/fonts/Lovelo/Lovelo-LineLight.ttf");
 }
 
-.font-kobe {
+/* .font-kobe {
   font-family: KodeMono;
 }
 .font-lovelo {
   font-family: Lovelo;
-}
+} */
 
 /* .slick-slider > div {
   padding: 60px 60px;
