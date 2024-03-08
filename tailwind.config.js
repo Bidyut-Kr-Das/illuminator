@@ -5,13 +5,14 @@ export default {
     extend: {
       fontFamily: {
         kobe: ["KodeMono"],
-        lovelo: ["Lovelo"]
+        lovelo: ["Lovelo"],
+        poppins: ["Poppins"]
       },
       backgroundColor: {
-        primary: "#EADFB4",
-        secondary: "#9BB0C1",
-        tertiary: "#51829B",
-        quaternary: "#F6995C"
+        primary: "#E1F0DA",
+        secondary: "#D4E7C5",
+        tertiary: "#BFD8AF",
+        quaternary: "#99BC85"
       },
       colors: {
         primary: "#211951"

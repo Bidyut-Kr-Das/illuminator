@@ -38,7 +38,7 @@ const Navbar = () => {
             title="Profile"
           >
             <img
-              src="icons/userIcon.svg"
+              src="/icons/userIcon.svg"
               alt="usericon"
               width={20}
               height={20}
@@ -50,7 +50,7 @@ const Navbar = () => {
             title="Cart"
           >
             <img
-              src="icons/cartIcon.svg"
+              src="/icons/cartIcon.svg"
               alt="cartIcon"
               width={20}
               height={20}

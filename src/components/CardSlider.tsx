@@ -6,11 +6,14 @@ type ProductCardProp = {
   image: string;
   title: string;
   price: string;
+  cardColor: string;
 };
 export const ProductCard = (props: ProductCardProp) => {
   return (
     <>
-      <section className="bg-primary h-80 w-64 mx-auto font-kobe font-extrabold p-3 rounded-lg shadow-md mb-3 drop-shadow-lg">
+      <section
+        className={`${props.cardColor} h-80 w-64 mx-auto font-kobe font-extrabold p-3 rounded-lg shadow-lg mb-3 drop-shadow-lg`}
+      >
         <div className="h-48">
           <img
             src={props.image}
@@ -18,12 +21,14 @@ export const ProductCard = (props: ProductCardProp) => {
             className="h-full rounded-lg"
           />
         </div>
-        <div className="flex flex-col justify-center gap-4 items-center relative text-left w-full mt-4 ">
+        <div className="flex flex-col justify-center gap-4 items-center relative text-left w-full mt-4">
           <h1 className="w-full text-lg">{props.title}</h1>
           <p className=" bg-quaternary -ml-12 pl-3 w-[90%] h-8 leading-7 text-white">
             Rs: {props.price}/-
           </p>
-          <span className="h-8 aspect-square top-[55%] bg-primary absolute rotate-45 right-6"></span>
+          <span
+            className={` ${props.cardColor} h-8 aspect-square top-[55%] absolute rotate-45 right-6`}
+          ></span>
         </div>
       </section>
     </>
@@ -49,7 +54,7 @@ const CardSlider = ({
     arrows: true,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 700,
         settings: {
           arrows: false,
           dots: true,
@@ -58,12 +63,34 @@ const CardSlider = ({
           className: "center",
           slidesToShow: 1
         }
+      },
+      {
+        breakpoint: 1300,
+        settings: {
+          arrows: false,
+          dots: true,
+          centerMode: true,
+          centerPadding: "0px",
+          className: "center",
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 1520,
+        settings: {
+          arrows: false,
+          dots: false,
+          centerMode: true,
+          centerPadding: "0px",
+          className: "center"
+          // slidesToShow: 2
+        }
       }
     ]
   };
   return (
     <>
-      <h1 className="text-3xl font-semibold font-kobe  tracking-normal md:tracking-wider text-primary bg-secondary">
+      <h1 className="text-3xl font-semibold font-kobe  tracking-normal md:tracking-wider text-primary ">
         <span className="underline underline-offset-2">{title}</span> &rarr;
       </h1>
       <section className="mx-auto pt-8 ">
