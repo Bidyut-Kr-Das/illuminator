@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @font-face {
   font-family: KodeMono;
   src: url("./fonts/Kode_Mono/KodeMono-VariableFont_wght.ttf");
@@ -6,10 +9,6 @@
   font-family: Lovelo;
   src: url("./fonts/Lovelo/Lovelo-LineLight.ttf");
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /* .slick-slider > div {
   padding: 60px 60px;
