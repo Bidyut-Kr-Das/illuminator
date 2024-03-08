@@ -10,6 +10,13 @@
   src: url("./fonts/Lovelo/Lovelo-LineLight.ttf");
 }
 
+.font-kobe {
+  font-family: KodeMono;
+}
+.font-lovelo {
+  font-family: Lovelo;
+}
+
 /* .slick-slider > div {
   padding: 60px 60px;
 } */
