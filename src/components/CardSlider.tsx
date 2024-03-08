@@ -1,0 +1,84 @@
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+type ProductCardProp = {
+  image: string;
+  title: string;
+  price: string;
+};
+export const ProductCard = (props: ProductCardProp) => {
+  return (
+    <>
+      <section className="bg-primary h-80 w-64 mx-auto font-kobe font-extrabold p-3 rounded-lg shadow-md mb-3 drop-shadow-lg">
+        <div className="h-48">
+          <img
+            src={props.image}
+            alt={props.title}
+            className="h-full rounded-lg"
+          />
+        </div>
+        <div className="flex flex-col justify-center gap-4 items-center relative text-left w-full mt-4 ">
+          <h1 className="w-full text-lg">{props.title}</h1>
+          <p className=" bg-quaternary -ml-12 pl-3 w-[90%] h-8 leading-7 text-white">
+            Rs: {props.price}/-
+          </p>
+          <span className="h-8 aspect-square top-[55%] bg-primary absolute rotate-45 right-6"></span>
+        </div>
+      </section>
+    </>
+  );
+};
+
+type arrowProps = {
+  className?: string;
+  style?: any;
+  onClick?: any;
+};
+
+const CardSlider = ({
+  title,
+  children
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => {
+  const settings = {
+    className: "center",
+    centerMode: true,
+    centerPadding: "100px",
+    // dots: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          dots: true,
+          centerMode: true,
+          centerPadding: "0px",
+          className: "center",
+          slidesToShow: 1
+        }
+      }
+    ]
+  };
+  return (
+    <>
+      <h1 className="text-3xl font-semibold font-kobe  tracking-normal md:tracking-wider text-primary bg-secondary">
+        <span className="underline underline-offset-2">{title}</span> &rarr;
+      </h1>
+      <section className="mx-auto pt-8 ">
+        <Slider {...settings} className="flex justify-center items-center pb-4">
+          {children}
+        </Slider>
+      </section>
+    </>
+  );
+};
+
+export default CardSlider;
