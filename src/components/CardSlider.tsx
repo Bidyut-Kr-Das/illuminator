@@ -30,12 +30,6 @@ export const ProductCard = (props: ProductCardProp) => {
   );
 };
 
-type arrowProps = {
-  className?: string;
-  style?: any;
-  onClick?: any;
-};
-
 const CardSlider = ({
   title,
   children
