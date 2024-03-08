@@ -18,7 +18,7 @@ const CTASection = () => {
     submit: false
   });
   return (
-    <section className="bg-primary py-20 px-4 md:px-40 flex justify-center">
+    <section className="bg-primary py-20 px-4 md:px-40 flex justify-center select-none">
       <div className=" py-8 px-4 w-full rounded-lg shadow-lg shadow-black/20 bg-gradient-to-tl from-[#BFD8AF] to-[#99BC85] flex gap-4 flex-col">
         <h3 className="text-center font-poppins font-semibold text-3xl capitalize">
           Want us to lightup your personal brand/Shop ?
@@ -28,7 +28,7 @@ const CTASection = () => {
           cool brands like yours. We also take orders for custom neon signs.
         </p>
         <form
-          className="flex md:flex-row flex-col gap-4 justify-evenly items-center"
+          className="flex lg:flex-row flex-col gap-4 justify-evenly items-center"
           onSubmit={e => {
             e.preventDefault();
             if (form.valid)
@@ -62,7 +62,7 @@ const CTASection = () => {
                     });
               }}
               autoComplete="off"
-              className={`${form.field && !form.submit ? `block` : `hidden`} outline-none px-2 h-12 rounded-full border-[#99BC85] border-2 tracking-wider text-lg text-[#99BC85] font-bold w-full placeholder:font-bold`}
+              className={`${form.field && !form.submit ? `block` : `hidden`} outline-none px-2 h-12 rounded-full border-[#99BC85] border-2 tracking-wider text-lg text-[#99BC85] font-bold w-full placeholder:font-bold select-text`}
               placeholder="Provide your contact Number"
               pattern="[0-9]{10}"
             />
@@ -75,7 +75,7 @@ const CTASection = () => {
           </div>
           <button
             onClick={() => setForm({ ...form, field: true })}
-            className={`h-12 bg-quaternary  rounded-full shadow-md shadow-black/20 w-full sm:w-96 hover:shadow-black/30 select-none cursor-pointer font-bold text-white tracking-wider text-lg mx-auto ${form.submit ? `hidden` : `block`}`}
+            className={`h-12 bg-quaternary  rounded-full shadow-md shadow-black/20 w-full lg:w-96 hover:shadow-black/30 select-none cursor-pointer font-bold text-white tracking-wider text-lg mx-auto ${form.submit ? `hidden` : `block`}`}
             type={`${form.field ? `submit` : `button`}`}
           >
             Request a Call

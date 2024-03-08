@@ -54,21 +54,53 @@
     0 0 10px #eadfb4,
     0 0 20px #eadfb4,
     0 0 40px #f6995c,
-    0 0 80px #eadfb4,
-    0 0 160px #eadfb4;
+    0 0 80px #f6995c,
+    0 0 160px #f6995c;
   user-select: none;
+  animation: glow 2s ease-in-out;
   /* cursor: none; */
 }
-
-.textShadowReflection {
-  color: #eadfb4;
-
-  user-select: none;
-  /* cursor: none; */
-  transform: rotatex(180deg);
-  mask-image: linear-gradient(transparent 40%, #0008);
+@keyframes glow {
+  0% {
+    opacity: 0;
+    color: #f6995c;
+  }
+  20% {
+    opacity: 1;
+    color: #f6995c;
+    text-shadow: 0 0 10px #eadfb4;
+  }
+  40% {
+    color: #f6995c;
+    text-shadow:
+      0 0 10px #eadfb4,
+      0 0 20px #eadfb4;
+  }
+  60% {
+    color: #f6995c;
+    text-shadow:
+      0 0 10px #eadfb4,
+      0 0 20px #eadfb4,
+      0 0 40px #f6995c;
+  }
+  80% {
+    color: #f6995c;
+    text-shadow:
+      0 0 10px #eadfb4,
+      0 0 20px #eadfb4,
+      0 0 40px #f6995c,
+      0 0 80px #eadfb4;
+  }
+  100% {
+    color: #f6995c;
+    text-shadow:
+      0 0 10px #eadfb4,
+      0 0 20px #eadfb4,
+      0 0 40px #f6995c,
+      0 0 80px #f6995c,
+      0 0 160px #f6995c;
+  }
 }
-
 /* HamBurger menu animation */
 *,
 *::after,

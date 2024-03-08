@@ -1,18 +1,22 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { twMerge } from "tailwind-merge";
 
 type ProductCardProp = {
   image: string;
   title: string;
   price: string;
-  cardColor: string;
+  cardColor?: string;
 };
 export const ProductCard = (props: ProductCardProp) => {
   return (
     <>
       <section
-        className={`${props.cardColor} h-80 w-64 mx-auto font-kobe font-extrabold p-3 rounded-lg shadow-lg mb-3 drop-shadow-lg`}
+        className={twMerge(
+          `h-80 w-64 mx-auto font-kobe font-extrabold p-3 rounded-lg shadow-lg mb-3 drop-shadow-lg bg-slate-200`,
+          `${props.cardColor}`
+        )}
       >
         <div className="h-48">
           <img
@@ -27,7 +31,10 @@ export const ProductCard = (props: ProductCardProp) => {
             Rs: {props.price}/-
           </p>
           <span
-            className={` ${props.cardColor} h-8 aspect-square top-[55%] absolute rotate-45 right-6`}
+            className={twMerge(
+              `h-8 aspect-square top-[57%] absolute rotate-45 right-6 bg-slate-200`,
+              `${props.cardColor}`
+            )}
           ></span>
         </div>
       </section>
