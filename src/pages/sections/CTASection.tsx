@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 type formType = {
   field: boolean;
   valid: boolean;
@@ -14,8 +14,8 @@ const CTASection = () => {
   const [form, setForm] = useState<formType>({
     field: false,
     valid: false,
-    text: "",
-    submit: false
+    text: '',
+    submit: false,
   });
   return (
     <section className="bg-primary py-20 px-4 md:px-40 flex justify-center select-none">
@@ -29,19 +29,19 @@ const CTASection = () => {
         </p>
         <form
           className="flex lg:flex-row flex-col gap-4 justify-evenly items-center"
-          onSubmit={e => {
+          onSubmit={(e) => {
             e.preventDefault();
             if (form.valid)
               setForm({
                 ...form,
-                text: "Thank you for your request, we will contact you soon.",
-                submit: true
+                text: 'Thank you for your request, we will contact you soon.',
+                submit: true,
               });
             else
               setForm({
                 ...form,
-                text: "Please provide a valid phone number",
-                submit: false
+                text: 'Please provide a valid phone number',
+                submit: false,
               });
           }}
         >
@@ -53,12 +53,12 @@ const CTASection = () => {
               name="phoneNumberCTA"
               id="phoneNumberCTA"
               required
-              onChange={e => {
+              onChange={(e) => {
                 e.target.value.length === 10
                   ? setForm({ ...form, valid: true })
                   : setForm({
                       ...form,
-                      valid: false
+                      valid: false,
                     });
               }}
               autoComplete="off"
@@ -67,8 +67,7 @@ const CTASection = () => {
               pattern="[0-9]{10}"
             />
             <div
-              className={`${form.valid && form.submit ? `text-black font-bold text-center` : `text-red-500`}
-              `}
+              className={`${form.valid && form.submit ? `text-black font-bold text-center` : `text-red-500 ${form.text === '' ? `hidden` : `block`}`}`}
             >
               {form.text}
             </div>
