@@ -1,4 +1,4 @@
-import CardSlider, { ProductCard } from "../../components/CardSlider";
+import CardSlider, { ProductCard } from '../../components/CardSlider';
 
 const ShowcaseSection = ({ url, title }: { url: string; title: string }) => {
   return (
@@ -6,7 +6,7 @@ const ShowcaseSection = ({ url, title }: { url: string; title: string }) => {
       <CardSlider title={title}>
         <ProductCard
           image="/images/noImage.jpg"
-          title="This is a new Product"
+          title={`This is a new Product${url}`}
           price="7999"
         />
 

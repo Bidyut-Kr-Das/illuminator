@@ -1,7 +1,6 @@
-import CardSlider, { ProductCard } from "../components/CardSlider";
-import CTASection from "./sections/CTASection";
-import ContactSection from "./sections/ContactSection";
-import ShowcaseSection from "./sections/ShowcaseSection";
+import CTASection from './sections/CTASection';
+import ContactSection from './sections/ContactSection';
+import ShowcaseSection from './sections/ShowcaseSection';
 
 const LandingPage = () => {
   return (
