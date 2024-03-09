@@ -15,7 +15,8 @@ export default {
         quaternary: "#99BC85"
       },
       colors: {
-        primary: "#211951"
+        primary: "#211951",
+        secondary: "#99BC85"
       }
     }
   },

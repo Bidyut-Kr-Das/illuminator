@@ -1,5 +1,7 @@
 import CardSlider, { ProductCard } from "../components/CardSlider";
 import CTASection from "./sections/CTASection";
+import ContactSection from "./sections/ContactSection";
+import ShowcaseSection from "./sections/ShowcaseSection";
 
 const LandingPage = () => {
   return (
@@ -10,71 +12,18 @@ const LandingPage = () => {
           Let us lightup your Brand
         </span>
       </section>
-      <section className="px-4 md:px-12 pt-8 pb-8 bg-secondary ">
-        <CardSlider title="Newly Launched">
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
+      {/* This showcase section for newly launched */}
+      <ShowcaseSection url="" title="Newly Launched" />
 
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
-
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
-        </CardSlider>
-      </section>
       {/* CTA section */}
       <CTASection />
-      <section className="px-4 md:px-12 pt-8 pb-8 bg-secondary ">
-        <CardSlider title="Trending">
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
 
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
+      {/* Two card section for trending and top picks*/}
+      <ShowcaseSection url="" title="Trending" />
+      <ShowcaseSection url="" title="Top Picks" />
 
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
-        </CardSlider>
-      </section>
-      <section className="px-4 md:px-12 pt-8 pb-8 bg-secondary ">
-        <CardSlider title="Top picks">
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
-
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
-
-          <ProductCard
-            image="/images/noImage.jpg"
-            title="This is a new Product"
-            price="7999"
-          />
-        </CardSlider>
-      </section>
+      {/* Contact section */}
+      <ContactSection />
     </main>
   );
 };

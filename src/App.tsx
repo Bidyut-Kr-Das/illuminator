@@ -1,11 +1,6 @@
-// import axios from "axios";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Navbar from "./components/Nav";
-// import ProductCard from "./components/ProductCard";
-// import CardSlider from "./components/CardSlider";
 import LandingPage from "./pages/LandingPage";
-// import { useEffect, useState } from "react";
 
 function App() {
   return (
