@@ -46,7 +46,7 @@ const CTASection = () => {
           }}
         >
           <div
-            className={`flex flex-col w-full ${form.field ? `block` : `hidden`} gap-4`}
+            className={`flex flex-col w-full ${form.field ? `block` : `hidden`} gap-4 relative`}
           >
             <input
               type="number"
@@ -67,7 +67,7 @@ const CTASection = () => {
               pattern="[0-9]{10}"
             />
             <div
-              className={`${form.valid && form.submit ? `text-black font-bold text-center` : `text-red-500`}`}
+              className={`${form.valid && form.submit ? `text-black font-bold text-center` : `text-red-500`} lg:absolute -bottom-7 left-0`}
             >
               {form.text}
             </div>
