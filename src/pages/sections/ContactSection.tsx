@@ -2,7 +2,10 @@ import ContactForm from '../../components/ContactForm';
 
 const ContactSection = () => {
   return (
-    <section className="py-20 px-2 md:px-24 font-poppins flex flex-col gap-6">
+    <section
+      id="contact"
+      className="py-20 px-2 md:px-24 font-poppins flex flex-col gap-6 drop-shadow-md"
+    >
       <div className="text-center w-full flex flex-col gap-4 select-none">
         <h2 className="font-kobe text-4xl font-bold ">
           <span className="text-secondary">Contact</span> Us
@@ -35,7 +38,18 @@ const ContactSection = () => {
               </h3>
             </div>
             <div className="flex items-center justify-start gap-4">
-              <img src="/icons/email.svg" alt="Call" draggable="false" />
+              <a
+                href="https://maps.app.goo.gl/ZA46hYv9AJukGaTg7"
+                target="_blank"
+                className="h-5 aspect-square"
+              >
+                <img
+                  src="/icons/email.svg"
+                  alt="Call"
+                  draggable="false"
+                  className="mt-1 h-full w-full"
+                />
+              </a>
               <h3 className="tracking-wider">
                 <span
                   className="cursor-pointer"
@@ -49,16 +63,22 @@ const ContactSection = () => {
               </h3>
             </div>
             <div className="flex items-start justify-start gap-4">
-              <img
-                src="/icons/location.svg"
-                alt="Call"
-                draggable="false"
-                className="mt-1"
-              />
+              <a
+                href="https://maps.app.goo.gl/ZA46hYv9AJukGaTg7"
+                target="_blank"
+                className="h-5 aspect-square"
+              >
+                <img
+                  src="/icons/location.svg"
+                  alt="Call"
+                  draggable="false"
+                  className="mt-1 h-full w-full"
+                />
+              </a>
               <h3 className="tracking-wider">
                 <span>
-                  Kiranvilla, 25 east joychanditala, madral, Kankinara, North 24
-                  Parganas, West Bengal, India. Pin: 743126
+                  Madral Rd, Finga Para, madral, Joychandital, Bhatpara, West
+                  Bengal 743126
                 </span>
               </h3>
             </div>

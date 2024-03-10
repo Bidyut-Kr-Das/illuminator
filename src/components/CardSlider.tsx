@@ -1,7 +1,7 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { twMerge } from "tailwind-merge";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { twMerge } from 'tailwind-merge';
 
 type ProductCardProp = {
   image: string;
@@ -44,15 +44,15 @@ export const ProductCard = (props: ProductCardProp) => {
 
 const CardSlider = ({
   title,
-  children
+  children,
 }: {
   title: string;
   children: React.ReactNode;
 }) => {
   const settings = {
-    className: "center",
+    className: 'center',
     centerMode: true,
-    centerPadding: "100px",
+    centerPadding: '100px',
     // dots: true,
     infinite: true,
     speed: 700,
@@ -66,10 +66,10 @@ const CardSlider = ({
           arrows: false,
           dots: true,
           centerMode: true,
-          centerPadding: "0px",
-          className: "center",
-          slidesToShow: 1
-        }
+          centerPadding: '0px',
+          className: 'center',
+          slidesToShow: 1,
+        },
       },
       {
         breakpoint: 1300,
@@ -77,10 +77,10 @@ const CardSlider = ({
           arrows: false,
           dots: true,
           centerMode: true,
-          centerPadding: "0px",
-          className: "center",
-          slidesToShow: 2
-        }
+          centerPadding: '0px',
+          className: 'center',
+          slidesToShow: 2,
+        },
       },
       {
         breakpoint: 1520,
@@ -88,19 +88,20 @@ const CardSlider = ({
           arrows: false,
           dots: false,
           centerMode: true,
-          centerPadding: "0px",
-          className: "center"
+          centerPadding: '0px',
+          className: 'center',
           // slidesToShow: 2
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
   return (
     <>
       <h1 className="text-3xl font-semibold font-kobe  tracking-normal md:tracking-wider text-primary ">
-        <span className="underline underline-offset-2">{title}</span> &rarr;
+        <span className="underline underline-offset-2 font-bold">{title}</span>{' '}
+        &rarr;
       </h1>
-      <section className="mx-auto pt-8 ">
+      <section className="mx-auto pt-8">
         <Slider {...settings} className="flex justify-center items-center pb-4">
           {children}
         </Slider>
@@ -110,3 +111,36 @@ const CardSlider = ({
 };
 
 export default CardSlider;
+//Css for slider arrow and all
+// .slick-next {
+//   top: -3rem;
+//   right: 3rem;
+//   width: 3rem;
+//   height: auto;
+// }
+// .slick-prev {
+//   top: -3rem;
+//   /* right: 3rem; */
+//   left: 60rem;
+//   width: 3rem;
+//   height: auto;
+// }
+// .slick-next::before,
+// .slick-prev::before {
+//   font-family: 'KodeMono';
+//   font-size: 2rem;
+//   color: white;
+//   background: #99bc85;
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 9999px;
+//   display: block;
+//   padding: 0.5rem 1rem;
+//   opacity: 0.9;
+// }
+// .slick-next::before {
+//   content: '>';
+// }
+// .slick-prev::before {
+//   content: '<';
+// }

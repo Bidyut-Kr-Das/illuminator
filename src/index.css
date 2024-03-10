@@ -1,17 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @font-face {
   font-family: KodeMono;
-  src: url("/fonts/Kode_Mono/KodeMono-VariableFont_wght.ttf");
+  src: url('/fonts/Kode_Mono/KodeMono-VariableFont_wght.ttf');
 }
 @font-face {
   font-family: Lovelo;
-  src: url("/fonts/Lovelo/Lovelo-LineLight.ttf");
+  src: url('/fonts/Lovelo/Lovelo-LineLight.ttf');
 }
 @font-face {
   font-family: Poppins;
-  src: url("/fonts/Poppins/Poppins-Regular.ttf");
+  src: url('/fonts/Poppins/Poppins-Regular.ttf');
+}
+html {
+  scroll-behavior: smooth;
 }
 
 .slick-next {
@@ -29,7 +33,7 @@
 }
 .slick-next::before,
 .slick-prev::before {
-  font-family: "KodeMono";
+  font-family: 'KodeMono';
   font-size: 2rem;
   color: white;
   background: #99bc85;
@@ -41,10 +45,10 @@
   opacity: 0.9;
 }
 .slick-next::before {
-  content: ">";
+  content: '>';
 }
 .slick-prev::before {
-  content: "<";
+  content: '<';
 }
 
 .textShadow {
@@ -152,7 +156,7 @@ body {
 .hamburger-menu::before,
 .hamburger-menu::after,
 .hamburger-menu input {
-  content: "";
+  content: '';
   width: var(--bar-width);
   height: var(--bar-height);
   background-color: var(--foreground);
@@ -200,7 +204,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
 }

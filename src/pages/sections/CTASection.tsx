@@ -67,7 +67,7 @@ const CTASection = () => {
               pattern="[0-9]{10}"
             />
             <div
-              className={`${form.valid && form.submit ? `text-black font-bold text-center` : `text-red-500 ${form.text === '' ? `hidden` : `block`}`}`}
+              className={`${form.valid && form.submit ? `text-black font-bold text-center` : `text-red-500`}`}
             >
               {form.text}
             </div>
