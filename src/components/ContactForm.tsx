@@ -125,7 +125,7 @@ const ContactForm = () => {
         </span>
         <span className="flex flex-col-reverse w-full gap-4 relative">
           <input
-            type="text"
+            type="number"
             name="phoneNumber"
             id="phoneNumber"
             autoComplete="off"

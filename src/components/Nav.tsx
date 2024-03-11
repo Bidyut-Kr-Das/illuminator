@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 // import Image from "next/image";
 // import Link from "next/link";
-import { Link } from "react-router-dom";
-import Hamburger from "./HamBurger";
+import { Link } from 'react-router-dom';
+import Hamburger from './HamBurger';
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   return (
@@ -29,7 +29,7 @@ const Navbar = () => {
           to="/"
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
         >
-          <img src="Illuminator.svg" alt="Illuminator Logo" className="h-16" />
+          <img src="/Illuminator.svg" alt="Illuminator Logo" className="h-16" />
         </Link>
         <div className="flex items-center gap-8">
           <Link
