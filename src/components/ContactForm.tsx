@@ -61,69 +61,75 @@ const ContactForm = () => {
       }}
     >
       <div className="flex flex-col md:flex-row gap-8">
-        <span className="flex flex-col w-full gap-4">
-          <label htmlFor="firstName" className="text-primary">
-            First Name
-          </label>
+        <span className="flex flex-col-reverse w-full gap-4">
           <input
             type="text"
             name="firstName"
             id="firstName"
             autoComplete="off"
-            className="outline-none bg-transparent border-b-2 border-secondary text-secondary w-full"
+            className="outline-none bg-transparent border-b-2 border-secondary text-secondary w-full peer"
             required
             value={form.firstName}
             onChange={(e) => {
               setForm({ ...form, firstName: e.target.value });
             }}
           />
-        </span>
-        <span className="flex flex-col w-full gap-4">
-          <label htmlFor="lastName" className="text-primary">
-            Last Name
+          <label
+            htmlFor="firstName"
+            className="text-quaternary font-bold peer-focus:text-secondary"
+          >
+            First Name
           </label>
+        </span>
+        <span className="flex flex-col-reverse w-full gap-4">
           <input
             type="text"
             name="lastName"
             id="lastName"
             autoComplete="off"
-            className="outline-none bg-transparent border-b-2 border-secondary text-secondary w-full"
+            className="peer outline-none bg-transparent border-b-2 border-secondary text-secondary w-full"
             required
             value={form.lastName}
             onChange={(e) => {
               setForm({ ...form, lastName: e.target.value });
             }}
           />
+          <label
+            htmlFor="lastName"
+            className="text-quaternary font-bold peer-focus:text-secondary"
+          >
+            Last Name
+          </label>
         </span>
       </div>
       <div className="flex flex-col md:flex-row gap-8">
-        <span className="flex flex-col w-full gap-4">
-          <label htmlFor="email" className="text-primary">
-            Email
-          </label>
+        <span className="flex flex-col-reverse w-full gap-4">
           <input
             type="text"
             name="email"
             id="email"
             autoComplete="off"
-            className="outline-none bg-transparent border-b-2 border-secondary text-secondary w-full"
+            className="peer outline-none bg-transparent border-b-2 border-secondary text-secondary w-full"
             required
             value={form.email}
             onChange={(e) => {
               setForm({ ...form, email: e.target.value });
             }}
           />
-        </span>
-        <span className="flex flex-col w-full gap-4 relative">
-          <label htmlFor="phoneNumber" className="text-primary">
-            Phone Number
+          <label
+            htmlFor="email"
+            className="text-quaternary font-bold peer-focus:text-secondary"
+          >
+            Email
           </label>
+        </span>
+        <span className="flex flex-col-reverse w-full gap-4 relative">
           <input
             type="text"
             name="phoneNumber"
             id="phoneNumber"
             autoComplete="off"
-            className="outline-none bg-transparent border-b-2 border-secondary text-secondary w-full"
+            className="peer outline-none bg-transparent border-b-2 border-secondary text-secondary w-full"
             required
             value={form.phoneNumber}
             onChange={(e) => {
@@ -131,9 +137,15 @@ const ContactForm = () => {
               setForm({ ...form, phoneNumber: e.target.value });
             }}
           />
+          <label
+            htmlFor="phoneNumber"
+            className="text-quaternary font-bold peer-focus:text-secondary"
+          >
+            Phone Number
+          </label>
         </span>
       </div>
-      <h2 className="text-primary font-bold">Select Subject?</h2>
+      <h2 className="text-quaternary font-bold">Select Subject?</h2>
       <div className="flex flex-col md:flex-row w-full">
         <div className="flex flex-col gap-1 w-full">
           <span className="flex flex-row w-full gap-4 items-center justify-start">
@@ -142,14 +154,17 @@ const ContactForm = () => {
               name="reason"
               id="rGeneral"
               autoComplete="off"
-              className="ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
+              className="peer ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
               required
               value="General Inquiries"
               onClick={() => {
                 setForm({ ...form, reason: 'General Inquires' });
               }}
             />
-            <label htmlFor="rGeneral" className="text-primary cursor-pointer">
+            <label
+              htmlFor="rGeneral"
+              className="text-quaternary font-bold peer-checked:text-secondary"
+            >
               General Inquiries
             </label>
           </span>
@@ -159,14 +174,17 @@ const ContactForm = () => {
               name="reason"
               id="rProduct"
               autoComplete="off"
-              className="ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
+              className="peer ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
               required
               value="Product Inquiries"
               onClick={() => {
                 setForm({ ...form, reason: 'Product Inquiries' });
               }}
             />
-            <label htmlFor="rProduct" className="text-primary cursor-pointer">
+            <label
+              htmlFor="rProduct"
+              className="text-quaternary font-bold peer-checked:text-secondary"
+            >
               Product Inquiries
             </label>
           </span>
@@ -178,14 +196,17 @@ const ContactForm = () => {
               name="reason"
               id="rShipping"
               autoComplete="off"
-              className="ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
+              className="peer ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
               required
               value="Shipping Inquiries"
               onClick={() => {
                 setForm({ ...form, reason: 'Shipping Inquiries' });
               }}
             />
-            <label htmlFor="rShipping" className="text-primary cursor-pointer">
+            <label
+              htmlFor="rShipping"
+              className="text-quaternary font-bold peer-checked:text-secondary"
+            >
               Shipping Inquiries
             </label>
           </span>
@@ -195,34 +216,39 @@ const ContactForm = () => {
               name="reason"
               id="rOrder"
               autoComplete="off"
-              className="ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
+              className="peer ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
               required
               value="Order Inquiries"
               onClick={() => {
                 setForm({ ...form, reason: 'Order Inquiries' });
               }}
             />
-            <label htmlFor="rOrder" className="text-primary cursor-pointer">
+            <label
+              htmlFor="rOrder"
+              className="text-quaternary font-bold peer-checked:text-secondary"
+            >
               Order Inquiries
             </label>
           </span>
         </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <h2 className="text-primary">Message</h2>
+      <div className="flex flex-col-reverse gap-4">
         <textarea
           name="message"
           id="message"
           placeholder="Enter your message..."
-          className="bg-transparent border-b-2 border-secondary w-full resize-none outline-none text-secondary"
+          className="peer bg-transparent border-b-2 border-secondary w-full resize-none outline-none text-secondary"
           value={form.message}
           onChange={(e) => {
             setForm({ ...form, message: e.target.value });
           }}
         ></textarea>
+        <h2 className="text-quaternary font-bold peer-focus:text-secondary">
+          Message
+        </h2>
       </div>
       <button
-        className="py-1 px-4 bg-white w-full md:w-72 h-12 text-secondary rounded-full shadow-black/50 shadow-md hover:shadow-lg hover:shadow-black/50"
+        className="py-1 px-4 bg-white w-full md:w-72 h-12 text-secondary rounded-full shadow-black/50 font-bold shadow-md hover:shadow-lg hover:shadow-black/50"
         type="submit"
       >
         Send Message

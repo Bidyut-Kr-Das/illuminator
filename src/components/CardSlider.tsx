@@ -14,7 +14,8 @@ export const ProductCard = (props: ProductCardProp) => {
     <>
       <section
         className={twMerge(
-          `h-80 w-64 mx-auto font-kobe font-extrabold p-3 rounded-lg shadow-lg mb-3 drop-shadow-lg bg-slate-200`,
+          `h-80 w-64 mx-auto font-kobe font-extrabold p-2 sm:p-3 rounded-lg shadow-lg mb-3 drop-shadow-lg bg-slate-200 border-[3px]
+          border-secondary`,
           `${props.cardColor}`
         )}
       >
@@ -27,12 +28,12 @@ export const ProductCard = (props: ProductCardProp) => {
         </div>
         <div className="flex flex-col justify-center gap-4 items-center relative text-left w-full mt-4">
           <h1 className="w-full text-lg">{props.title}</h1>
-          <p className=" bg-quaternary -ml-12 pl-3 w-[90%] h-8 leading-7 text-white">
+          <p className=" bg-gradient-to-r from-secondary to-tertiary -ml-10 sm:-ml-12 pl-3 w-[90%] h-8 leading-7 text-primary">
             Rs: {props.price}/-
           </p>
           <span
             className={twMerge(
-              `h-8 aspect-square top-[57%] absolute rotate-45 right-6 bg-slate-200`,
+              `h-8 aspect-square top-[57%] absolute rotate-45 right-4 sm:right-6 bg-slate-200`,
               `${props.cardColor}`
             )}
           ></span>
@@ -97,7 +98,7 @@ const CardSlider = ({
   };
   return (
     <>
-      <h1 className="text-3xl font-semibold font-kobe  tracking-normal md:tracking-wider text-primary ">
+      <h1 className="text-3xl font-semibold font-kobe  tracking-normal md:tracking-wider text-quaternary ">
         <span className="underline underline-offset-2 font-bold">{title}</span>{' '}
         &rarr;
       </h1>

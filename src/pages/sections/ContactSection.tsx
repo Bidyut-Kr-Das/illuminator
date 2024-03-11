@@ -14,7 +14,7 @@ const ContactSection = () => {
           Any question or remarks? Just write us a message!
         </h3>
       </div>
-      <div className="w-full flex xl:flex-row flex-col p-4 h-auto  bg-secondary rounded-lg text-white relative gap-8 md:gap-0">
+      <div className="w-full flex xl:flex-row flex-col p-4 h-auto  bg-[#e7e7e7] rounded-lg text-white relative gap-8 md:gap-0">
         <section className="xl:w-[60%] p-8 bg-quaternary flex flex-col rounded-lg relative  justify-between gap-12 xl:gap-0 overflow-hidden">
           <div className="flex flex-col gap-2">
             <h2 className="font-kobe text-2xl font-bold ">

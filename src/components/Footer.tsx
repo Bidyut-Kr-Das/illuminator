@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="w-full p-4 md:p-12 bg-quaternary flex flex-col gap-4">
+      <footer className="w-full p-4 md:p-12 bg-gradient-to-tl from-secondary to-tertiary flex flex-col gap-4">
         <h2 className="w-full">
           <img
             src="/Illuminator.svg"
@@ -92,7 +92,7 @@ const Footer = () => {
           </span>
         </div>
       </footer>
-      <h3 className="bg-primary w-full text-primary font-poppins text-center py-1 ">
+      <h3 className="bg-quaternary w-full text-primary font-poppins text-center py-1 ">
         &copy; 2024 Illuminator. All rights reserved by Das Enterprise.
       </h3>
     </>
