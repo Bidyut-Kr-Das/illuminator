@@ -1,11 +1,42 @@
+import axios from 'axios';
+axios.defaults.withCredentials = true;
+
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const LoginForm = () => {
+  //states
   const [form, setForm] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState<boolean>(false);
-
-  const handleSubmit = async () => {};
+  const loginRequest = async () => {
+    try {
+      await axios.post(`http://localhost:8002/api/v1/users/login`, {
+        ...form,
+      });
+    } catch (error: any) {
+      // console.log(error.response.data.message);
+      throw new Error(error.response.data.message);
+    }
+  };
+  const handleSubmit = () => {
+    if (
+      form.email.trim().length === 0 ||
+      form.password.trim().length === 0 ||
+      form.email.indexOf(`@`) === -1
+    )
+      return;
+    toast.promise(loginRequest, {
+      loading: `Loggin in...`,
+      success: () => {
+        return `Logged in successfully`;
+      },
+      error: (err: any) => {
+        // console.log(err.response.data.message);
+        return err.message;
+      },
+    });
+  };
   return (
     <div className="select-none font-poppins flex flex-col gap-1">
       <h2 className=" w-full text-quaternary font-black font-kobe text-3xl drop-shadow-md">
@@ -78,10 +109,27 @@ const LoginForm = () => {
           </button>
         </span>
       </form>
-      <Link className="mt-4" to={`/user/signup`}>
+      {/* <Link className="mt-4" to={`/user/signup`}>
         Not a member yet?{' '}
         <span className="text-secondary font-medium">Join In</span>
-      </Link>
+      </Link> */}
+      <div
+        onClick={() => {
+          // axios
+          //   .post(`http://localhost:8002/api/v1/users/logout`, {
+          //     test: 'testing',
+          //   })
+          //   .then((res) => {
+          //     console.log(res.data);
+          //   })
+          //   .catch((err) => {
+          //     console.log(err);
+          //   });
+          console.log(document.cookie);
+        }}
+      >
+        test
+      </div>
     </div>
   );
 };

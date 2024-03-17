@@ -1,48 +1,64 @@
 import axios from 'axios';
+axios.defaults.withCredentials = true;
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
 
 type SignupFormFields = {
   name: string;
   email: string;
-  phoneNumber: string;
   password: string;
   confPassword: string;
-  gender: 'Male' | 'Female' | 'Other' | '';
 };
 
 const SignupForm = () => {
+  //states
   const [form, setForm] = useState<SignupFormFields>({
     name: '',
     email: '',
-    phoneNumber: '',
     password: '',
     confPassword: '',
-    gender: '',
   });
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [matchPass, setMatchPass] = useState<boolean>(false);
 
+  const loginRequest = () =>
+    new Promise((resolve, reject) => {
+      axios
+        //https://illuminatorbackend.up.railway.app/api/v1/users/signup
+        .post('http://localhost:8002/api/v1/users/signup', {
+          ...form,
+        })
+        .then((response) => {
+          resolve(response.data);
+        })
+        .catch((error) => {
+          reject(error.response.data);
+        });
+    });
   const handleSubmit = async () => {
     // console.log(form);
     if (!matchPass) return;
     if (
       form.name.trim().length === 0 ||
       form.email.trim().length === 0 ||
-      form.phoneNumber.trim().length === 0 ||
       form.password.trim().length === 0 ||
       form.confPassword.trim().length === 0 ||
       form.email.indexOf(`@`) === -1
     )
       return;
-    console.log(form);
-    const response = await axios.post(
-      `https://illuminatorbackend.up.railway.app/api/v1/users/signup`,
-      {
-        ...form,
-      }
-    );
-    console.log(response.data);
+    toast.promise(loginRequest, {
+      loading: 'Signing up...',
+      success: (data: any) => {
+        console.log(data);
+        return 'Signup successful';
+      },
+      error: (error: { status: string; message: string }) => {
+        // console.log(error);
+        return error.message;
+      },
+    });
   };
 
   return (
@@ -99,94 +115,7 @@ const SignupForm = () => {
             Email
           </label>
         </span>
-        <span className="flex flex-col-reverse sm:flex-row-reverse w-full relative justify-center sm:items-center sm:gap-0 gap-2">
-          <input
-            type="number"
-            name="phoneNumber"
-            id="phoneNumber"
-            autoComplete="off"
-            className="shadow-md peer focus:text-secondary text-quaternary/60 outline-none bg-[#f3f3f3]  w-full h-10 px-2"
-            required
-            value={form.phoneNumber}
-            onChange={(e) => {
-              if (e.target.value.length > 10) return;
-              setForm({ ...form, phoneNumber: e.target.value.trim() });
-            }}
-          />
-          <label
-            htmlFor="phoneNumber"
-            className="text-quaternary font-bold peer-focus:text-secondary w-full sm:w-1/2"
-          >
-            Phone Number
-          </label>
-        </span>
-        <span className="flex flex-col sm:flex-row w-full relative justify-center sm:items-center sm:gap-0 gap-2">
-          <label className="text-quaternary font-bold peer-focus:text-secondary w-1/2">
-            Gender
-          </label>
-          <div className="w-full flex flex-row sm:flex-col md:flex-row lg:flex-col xl:flex-row gap-4">
-            <span className="flex flex-row w-full gap-2 items-center justify-start">
-              <input
-                type="radio"
-                name="gender"
-                id="Male"
-                autoComplete="off"
-                className="peer ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
-                required
-                value="Male"
-                onClick={() => {
-                  setForm({ ...form, gender: 'Male' });
-                }}
-              />
-              <label
-                htmlFor="Male"
-                className="text-quaternary font-bold peer-checked:text-secondary"
-              >
-                Male
-              </label>
-            </span>
-            <span className="flex flex-row w-full gap-2 items-center justify-start">
-              <input
-                type="radio"
-                name="gender"
-                id="Female"
-                autoComplete="off"
-                className="peer ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
-                required
-                value="Female"
-                onClick={() => {
-                  setForm({ ...form, gender: 'Female' });
-                }}
-              />
-              <label
-                htmlFor="Female"
-                className="text-quaternary font-bold peer-checked:text-secondary"
-              >
-                Female
-              </label>
-            </span>
-            <span className="flex flex-row w-full gap-2 items-center justify-start">
-              <input
-                type="radio"
-                name="gender"
-                id="Others"
-                autoComplete="off"
-                className="peer ouline-none bg-transparent border-none w-4 h-4 accent-secondary cursor-pointer"
-                required
-                value="Other"
-                onClick={() => {
-                  setForm({ ...form, gender: 'Other' });
-                }}
-              />
-              <label
-                htmlFor="Others"
-                className="text-quaternary font-bold peer-checked:text-secondary"
-              >
-                Others
-              </label>
-            </span>
-          </div>
-        </span>
+
         <span className="flex flex-col-reverse sm:flex-row-reverse w-full relative justify-center sm:items-center sm:gap-0 gap-2">
           <input
             type={showPassword ? 'text' : 'password'}

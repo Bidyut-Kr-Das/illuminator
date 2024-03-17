@@ -1,3 +1,5 @@
+// import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <>
@@ -84,7 +86,7 @@ const Footer = () => {
             </h3>
             <ul className="text-white flex flex-col gap-4">
               <li>About</li>
-              <a href="#contact">
+              <a href={`/#contact`}>
                 <li>Contact</li>
               </a>
               <li>Faq</li>

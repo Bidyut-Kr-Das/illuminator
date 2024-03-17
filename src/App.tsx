@@ -6,10 +6,14 @@ import Navbar from './components/Nav';
 import LandingPage from './pages/LandingPage';
 import Footer from './components/Footer';
 import User from './pages/User';
+import { Toaster } from 'sonner';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <main className="pt-12">
+      <ScrollToTop />
+      <Toaster richColors position="bottom-right" />
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
