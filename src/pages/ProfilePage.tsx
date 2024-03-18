@@ -4,7 +4,10 @@ import usePostReq from '../hooks/usePostReq.ts';
 import { useNavigate } from 'react-router-dom';
 
 const ProfilePage = () => {
-  const { postData } = usePostReq(`http://localhost:8002/api/v1`);
+  const { postData } = usePostReq(
+    // `http://localhost:8002/api/v1`
+    `https://illuminatorbackend.up.railway.app/api/v1`
+  );
   const navigate = useNavigate();
   const logout = async () => {
     await postData(`/users/logout`, {});
