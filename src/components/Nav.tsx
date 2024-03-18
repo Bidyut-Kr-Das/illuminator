@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="flex items-center gap-8">
           <Link
             className="duration-100 hover:scale-110"
-            to="/user"
+            to="/profile"
             title="Profile"
           >
             <img

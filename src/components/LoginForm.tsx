@@ -1,24 +1,39 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
-import { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { setAccessToken } from '../functions/localStorageAccess.ts';
+import usePostReq from '../hooks/usePostReq.ts';
+
+type FormType = {
+  email: string;
+  password: string;
+};
 
 const LoginForm = () => {
   //states
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState<FormType>({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const loginRequest = async () => {
-    try {
-      await axios.post(`http://localhost:8002/api/v1/users/login`, {
-        ...form,
-      });
-    } catch (error: any) {
-      // console.log(error.response.data.message);
-      throw new Error(error.response.data.message);
+  const { response, loading, postData } = usePostReq(
+    `http://localhost:8002/api/v1`
+  );
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (response.data && 'data' in response.data) {
+      const responseData = response.data as { data: { accessToken: string } };
+      // console.log(responseData.data);
+      setAccessToken(responseData.data.accessToken);
+      navigate(`/profile`);
     }
+  }, [response]);
+  const loginRequest = async () => {
+    await postData<FormType>(`/users/login`, { ...form });
+    setForm({ email: '', password: '' });
   };
+
   const handleSubmit = () => {
     if (
       form.email.trim().length === 0 ||
@@ -29,10 +44,16 @@ const LoginForm = () => {
     toast.promise(loginRequest, {
       loading: `Loggin in...`,
       success: () => {
-        return `Logged in successfully`;
+        // console.log(data);
+        try {
+          return `Logged in successfully`;
+        } finally {
+          // navigate(`/profile`);
+        }
       },
       error: (err: any) => {
         // console.log(err.response.data.message);
+        console.log(err);
         return err.message;
       },
     });
@@ -103,33 +124,24 @@ const LoginForm = () => {
           <label className="hidden sm:block sm:w-1/2"></label>
           <button
             type="submit"
-            className="bg-gradient-to-tl from-secondary to-tertiary h-10 w-full rounded-md text-white font-bold shadow-md hover:shadow-sm drop-shadow-md"
+            className="bg-gradient-to-tl from-secondary to-tertiary h-10 w-full rounded-md text-white font-bold shadow-md hover:shadow-sm drop-shadow-md disabled:bg-gray-500"
+            disabled={loading ? true : false}
           >
             Log in
           </button>
         </span>
       </form>
-      {/* <Link className="mt-4" to={`/user/signup`}>
+      <Link className="mt-4" to={`/user/signup`}>
         Not a member yet?{' '}
         <span className="text-secondary font-medium">Join In</span>
-      </Link> */}
-      <div
-        onClick={() => {
-          // axios
-          //   .post(`http://localhost:8002/api/v1/users/logout`, {
-          //     test: 'testing',
-          //   })
-          //   .then((res) => {
-          //     console.log(res.data);
-          //   })
-          //   .catch((err) => {
-          //     console.log(err);
-          //   });
-          console.log(document.cookie);
+      </Link>
+      {/* <div
+        onClick={async () => {
+         
         }}
       >
         test
-      </div>
+      </div> */}
     </div>
   );
 };
