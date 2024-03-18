@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
 const Protected = (props: { Component: React.ComponentType }) => {
-  const { Component } = props;
-  const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    if (!token) {
-      toast.error(`Please login first!`);
-      navigate(`/user/login`);
-    }
-  }, []);
+  // const navigate = useNavigate();
+  const token = localStorage.getItem('accessToken');
+  if (!token) {
+    toast.error(`Please login first!`);
 
-  return (
-    <>
-      <Component />
-    </>
-  );
+    return <Navigate to="/user/login" replace />;
+  } else {
+    const { Component } = props;
+    return (
+      <>
+        <Component />
+      </>
+    );
+  }
 };
 
 export default Protected;

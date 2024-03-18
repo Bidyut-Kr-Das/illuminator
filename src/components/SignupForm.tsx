@@ -1,9 +1,11 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { setAccessToken } from '../functions/localStorageAccess.ts';
+import usePostReq from '../hooks/usePostReq.ts';
 
 type SignupFormFields = {
   name: string;
@@ -22,21 +24,25 @@ const SignupForm = () => {
   });
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [matchPass, setMatchPass] = useState<boolean>(false);
+  const { response, loading, postData } = usePostReq(
+    // `http://localhost:8002/api/v1`
+    `illuminatorbackend.up.railway.app/api/v1`
+  );
 
-  const loginRequest = () =>
-    new Promise((resolve, reject) => {
-      axios
-        //https://illuminatorbackend.up.railway.app/api/v1/users/signup
-        .post('http://localhost:8002/api/v1/users/signup', {
-          ...form,
-        })
-        .then((response) => {
-          resolve(response.data);
-        })
-        .catch((error) => {
-          reject(error.response.data);
-        });
-    });
+  const navigate = useNavigate();
+
+  //run when response changes
+  useEffect(() => {
+    if (response.data && 'data' in response.data) {
+      const responseData = response.data as { data: { accessToken: string } };
+      setAccessToken(responseData.data.accessToken);
+      navigate(`/profile`);
+    }
+  }, [response]);
+
+  const loginRequest = async () => {
+    await postData<SignupFormFields>(`/users/signup`, { ...form });
+  };
   const handleSubmit = async () => {
     // console.log(form);
     if (!matchPass) return;
@@ -50,11 +56,11 @@ const SignupForm = () => {
       return;
     toast.promise(loginRequest, {
       loading: 'Signing up...',
-      success: (data: any) => {
-        console.log(data);
+      success: () => {
+        // console.log(data);
         return 'Signup successful';
       },
-      error: (error: { status: string; message: string }) => {
+      error: (error: any) => {
         // console.log(error);
         return error.message;
       },
@@ -175,6 +181,7 @@ const SignupForm = () => {
           <button
             type="submit"
             className="bg-gradient-to-tl from-secondary to-tertiary h-10 w-full rounded-md text-white font-bold shadow-md hover:shadow-sm drop-shadow-md"
+            disabled={loading ? true : false}
           >
             Join in
           </button>
