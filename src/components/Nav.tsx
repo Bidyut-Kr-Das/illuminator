@@ -17,7 +17,7 @@ const Navbar = () => {
         <div
           className={`absolute ${showMenu ? `-left-4` : `-left-80`} lg:backdrop-none lg:backdrop-none top-0 mt-9 flex h-[calc(100vh-3rem)] w-48 flex-col gap-8 p-4  shadow-md backdrop-blur-md duration-200 lg:static lg:left-0 lg:mt-0 lg:flex lg:h-0 lg:w-auto lg:flex-row lg:items-center lg:justify-center lg:bg-transparent  lg:p-0 lg:text-inherit lg:shadow-none lg:duration-0`}
         >
-          <Link className="duration-100 hover:scale-110" to="/topPicks">
+          <Link className="duration-100 hover:scale-110" to="/adminlol">
             Top Picks
           </Link>
           <Link className="duration-100 hover:scale-110" to="/trending">

@@ -17,8 +17,8 @@ const LoginForm = () => {
   const [form, setForm] = useState<FormType>({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const { response, loading, postData } = usePostReq(
-    // `http://localhost:8002/api/v1`
-    `https://illuminatorbackend.up.railway.app/api/v1`
+    `http://localhost:8002/api/v1`
+    // `https://illuminatorbackend.up.railway.app/api/v1`
   );
   const navigate = useNavigate();
 

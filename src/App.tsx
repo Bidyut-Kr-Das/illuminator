@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import { Toaster } from 'sonner';
 import ScrollToTop from './components/ScrollToTop';
 import Loader from './components/Loader';
+import Admin from './pages/Admin';
 const Protected = lazy(() => import('./components/Protected'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const LandingPage = lazy(() => import('./pages/LandingPage'));
@@ -33,6 +34,7 @@ function App() {
             path="/profile"
             element={<Protected Component={ProfilePage} />}
           />
+          <Route path="/adminlol" element={<Protected Component={Admin} />} />
         </Routes>
         <Footer />
       </Suspense>
